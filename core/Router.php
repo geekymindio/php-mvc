@@ -1,14 +1,15 @@
 <?php 
 
-namespace App\Core;
+namespace Core;
 
-use App\Core\Application;
+use Core\Request;
+use Core\Response;
 
 class Router {
 	
-	protected $routes;
-	protected $request;
-	protected $response;
+	protected array $routes;
+	protected Request $request;
+	protected Response $response;
 
 	public function __construct($request, $response) {
 		$this->request = $request;
@@ -50,17 +51,14 @@ class Router {
 			return $this->response->notFound();
 		}
 
-
 		if(is_string($callback)) {
 			$callback = explode('@', $callback);
 			$callback[0] = "App\\Controllers\\" . $callback[0];
 		}
 
-
 		if(is_array($callback)) {
 			$callback[0] = new $callback[0]();
 		}
-
 
 		return call_user_func($callback, $this->request);
 	}

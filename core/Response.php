@@ -1,11 +1,11 @@
 <?php 
 
-namespace App\Core;
+namespace Core;
 
 class Response {
 	
-	protected $statusCode = 200;
-	protected $content;
+	protected int $statusCode = 200;
+	protected Container $content;
 
 	public function setStatusCode($statusCode) {
 		$this->statusCode = $statusCode;
@@ -29,8 +29,8 @@ class Response {
 
 
 	public function redirect($path) {
-		header('Location:' $path);
-		return $this->
+		header('Location:' . $path);
+		exit();
 	}
 
 

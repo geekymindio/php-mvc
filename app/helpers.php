@@ -1,9 +1,11 @@
-<?php 
+<?php
 
-use App\Core\Response;
+use App\Core\{Response};
 
 if(!function_exists('asset')) {
-	function asset() {}
+	function asset() {
+	    
+    }
 }
 
 
@@ -17,8 +19,8 @@ if(!function_exists('dd')) {
 }
 
 
-if(!function_exists('reponse')) {
-	function reponse() {
+if(!function_exists('response')) {
+	function response() {
 		return new Response();
 	}
 }

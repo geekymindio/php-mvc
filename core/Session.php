@@ -1,7 +1,9 @@
 <?php 
 
+namespace Core;
 
 class Session {
+
 	public function __construct() {
 		session_start();
 	}
@@ -17,6 +19,7 @@ class Session {
 	{
 		$messages = $_SESSION['flash_messages'] ?? [];
 		unset($_SESSION['flash_messages']);
+		return $messages;
 	}
 
 	
